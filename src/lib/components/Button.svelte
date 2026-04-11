@@ -3,6 +3,7 @@
 		variant?: 'primary' | 'secondary' | 'ghost';
 		disabled?: boolean;
 		ariaDisabled?: boolean;
+		ariaBusy?: boolean;
 		onclick?: () => void;
 		type?: 'button' | 'submit';
 		'aria-label'?: string;
@@ -14,6 +15,7 @@
 		variant = 'primary',
 		disabled = false,
 		ariaDisabled = false,
+		ariaBusy = false,
 		onclick,
 		type = 'button',
 		'aria-label': ariaLabel,
@@ -46,6 +48,7 @@
 	{type}
 	{disabled}
 	aria-disabled={ariaDisabled || undefined}
+	aria-busy={ariaBusy || undefined}
 	aria-label={ariaLabel}
 	onclick={handleClick}
 	data-testid={testId}
