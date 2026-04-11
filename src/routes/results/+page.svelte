@@ -25,7 +25,7 @@
 		isGeneratingPdf = true;
 		pdfStatus = 'generating';
 		try {
-			await generateReport(results);
+			await generateReport(results, assessment.responses);
 			pdfStatus = 'done';
 		} catch {
 			pdfStatus = 'error';
