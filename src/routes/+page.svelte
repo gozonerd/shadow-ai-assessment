@@ -10,11 +10,26 @@
 </script>
 
 <svelte:head>
-	<title>Shadow AI Risk Assessment — Free 2-Minute Exposure Scan</title>
+	<title>Shadow AI Risk Assessment — Free 2-Minute Tool</title>
 	<meta
 		name="description"
-		content="Discover your organization's Shadow AI exposure in 2 minutes. Get a free risk score, dollar-exposure estimate, and downloadable risk brief — 100% client-side."
+		content="1 in 5 organizations has experienced a shadow AI breach. Find out your organization's exposure in 2 minutes. Free — no sign-up required."
 	/>
+	<meta property="og:title" content="Shadow AI Risk Assessment" />
+	<meta
+		property="og:description"
+		content="1 in 5 organizations has experienced a shadow AI breach. Find out your organization's exposure in 2 minutes. Free — no sign-up required."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://shadowai.krystalmartinez.com" />
+	<meta property="og:site_name" content="Shadow AI Risk Assessment" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Shadow AI Risk Assessment" />
+	<meta
+		name="twitter:description"
+		content="1 in 5 organizations has experienced a shadow AI breach. Find out your organization's exposure in 2 minutes. Free — no sign-up required."
+	/>
+	<link rel="canonical" href="https://shadowai.krystalmartinez.com" />
 </svelte:head>
 
 <!-- ─── Hero ──────────────────────────────────────────────────────────────────── -->

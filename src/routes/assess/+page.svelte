@@ -52,7 +52,8 @@
 </script>
 
 <svelte:head>
-	<title>Assessment — Shadow AI Risk</title>
+	<title>Shadow AI Risk Assessment</title>
+	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <div class="max-w-2xl mx-auto py-8" data-testid="assess-page">

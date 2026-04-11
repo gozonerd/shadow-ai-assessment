@@ -42,6 +42,7 @@
 
 <svelte:head>
 	<title>Your Results — Shadow AI Risk Assessment</title>
+	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 {#if results}
