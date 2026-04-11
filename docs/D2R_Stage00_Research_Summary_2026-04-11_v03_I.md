@@ -1,4 +1,5 @@
 # D2R Stage 00: Research Summary
+
 **Project:** Shadow AI Lead Magnet — `shadowai.krystalmartinez.com`
 **Date:** 2026-04-11
 **Research model:** Sonnet 4.6
@@ -12,14 +13,14 @@
 
 - **Corrected statistics with authoritative sources:**
 
-  | Stat | Confirmed Value | Source | Notes |
-  |------|----------------|--------|-------|
-  | Additional breach cost when shadow AI involved | **$670,000** | IBM 2025 Cost of a Data Breach Report (published July 30, 2025) | Was correctly stated in source plan but cited to "IBM 2024" — correct citation is IBM 2025 |
-  | Orgs that experienced a breach caused by shadow AI | **20%** (1 in 5) | IBM 2025 Cost of a Data Breach Report | Replaces uncitable "98% of orgs have shadow AI" |
-  | AI-breached orgs lacking proper AI access controls | **97%** | IBM 2025 Cost of a Data Breach Report (IBM newsroom, July 30, 2025) | Strong supporting stat for urgency framing |
-  | Orgs lacking AI governance policies (among breached) | **63%** | IBM 2025 Cost of a Data Breach Report | Useful for policy question framing |
-  | Companies with technical controls to prevent confidential data uploads to AI tools | **17%** | IBM 2025 Cost of a Data Breach Report | Replaces uncitable "29% trained" |
-  | Employees using unapproved AI tools | **50%** | Software AG research (2024), cited in ISC2 community | Replaces uncitable "98% of orgs have shadow AI" as a human-behavior stat |
+  | Stat                                                                               | Confirmed Value  | Source                                                              | Notes                                                                                      |
+  | ---------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+  | Additional breach cost when shadow AI involved                                     | **$670,000**     | IBM 2025 Cost of a Data Breach Report (published July 30, 2025)     | Was correctly stated in source plan but cited to "IBM 2024" — correct citation is IBM 2025 |
+  | Orgs that experienced a breach caused by shadow AI                                 | **20%** (1 in 5) | IBM 2025 Cost of a Data Breach Report                               | Replaces uncitable "98% of orgs have shadow AI"                                            |
+  | AI-breached orgs lacking proper AI access controls                                 | **97%**          | IBM 2025 Cost of a Data Breach Report (IBM newsroom, July 30, 2025) | Strong supporting stat for urgency framing                                                 |
+  | Orgs lacking AI governance policies (among breached)                               | **63%**          | IBM 2025 Cost of a Data Breach Report                               | Useful for policy question framing                                                         |
+  | Companies with technical controls to prevent confidential data uploads to AI tools | **17%**          | IBM 2025 Cost of a Data Breach Report                               | Replaces uncitable "29% trained"                                                           |
+  | Employees using unapproved AI tools                                                | **50%**          | Software AG research (2024), cited in ISC2 community                | Replaces uncitable "98% of orgs have shadow AI" as a human-behavior stat                   |
 
   **Stats that had NO citable source and must be REMOVED from the plan:**
   - "98% of organizations have shadow AI" — does not appear in IBM, Gartner, or SANS
@@ -47,17 +48,19 @@
 - **Best practice:** `@tailwindcss/vite` plugin is the correct and current method for Tailwind v4 in Vite. The `@theme {}` block in `app.css` is the correct way to define design tokens and CSS custom properties. No `tailwind.config.js` exists in v4.
 
 - **Confirmed config pattern:**
+
   ```js
   // vite.config.ts
   import tailwindcss from '@tailwindcss/vite';
   export default defineConfig({ plugins: [tailwindcss()] });
   ```
+
   ```css
   /* app.css */
-  @import "tailwindcss";
+  @import 'tailwindcss';
   @theme {
-    --color-primary: #your-value;
-    --color-accent: #your-value;
+  	--color-primary: #your-value;
+  	--color-accent: #your-value;
   }
   ```
 
@@ -109,28 +112,33 @@
 - **Best practice:** W3C WAI-ARIA Authoring Practices Guide confirms the following patterns for WCAG 2.1 AA compliance:
 
   **Radio group (question card):**
+
   ```html
   <div role="radiogroup" aria-labelledby="group-label-id">
-    <span id="group-label-id">Question text here</span>
-    <div role="radio" aria-checked="false" tabindex="-1">Option A</div>
-    <div role="radio" aria-checked="true" tabindex="0">Option B (selected)</div>
-    <div role="radio" aria-checked="false" tabindex="-1">Option C</div>
+  	<span id="group-label-id">Question text here</span>
+  	<div role="radio" aria-checked="false" tabindex="-1">Option A</div>
+  	<div role="radio" aria-checked="true" tabindex="0">Option B (selected)</div>
+  	<div role="radio" aria-checked="false" tabindex="-1">Option C</div>
   </div>
   ```
+
   - Roving tabindex: only the selected/focused radio gets `tabindex="0"`, all others `tabindex="-1"`
   - `aria-checked` must be string `"true"` or `"false"` (not boolean)
 
   **Progress bar:**
+
   ```html
-  <div role="progressbar"
-       aria-valuenow="3"
-       aria-valuemin="1"
-       aria-valuemax="8"
-       aria-label="Question 3 of 8">
-  </div>
+  <div
+  	role="progressbar"
+  	aria-valuenow="3"
+  	aria-valuemin="1"
+  	aria-valuemax="8"
+  	aria-label="Question 3 of 8"
+  ></div>
   ```
 
   **Live region for dynamic updates:**
+
   ```html
   <div aria-live="polite" aria-atomic="true">Dynamic content here</div>
   ```
@@ -156,12 +164,13 @@
 - **Best practice:** Adapter-vercel is at v6.3.3 and supports Node.js 20, 22, and 24. `nodejs22.x` is recommended (active LTS). The governance tool uses `nodejs20.x` — this remains valid; upgrade to 22.x is optional for new project.
 
 - **Recommended config for new project:**
+
   ```js
   import adapter from '@sveltejs/adapter-vercel';
   export default {
-    kit: {
-      adapter: adapter({ runtime: 'nodejs22.x' })
-    }
+  	kit: {
+  		adapter: adapter({ runtime: 'nodejs22.x' })
+  	}
   };
   ```
 
@@ -184,12 +193,12 @@
 
 - **Best practice (differentiation):**
 
-  | Tool | Format | Dollar Estimate | PDF | Notes |
-  |------|--------|-----------------|-----|-------|
-  | GXA Shadow AI Risk Simulator | ~5-question calculator | Yes (IBM-sourced) | Not confirmed | Closest competitor — marketing lead gen |
-  | shadowaiaudit.com (Make More Marbles) | 3-minute quiz | Not confirmed | Not confirmed | Outputs governance policy template, not risk dollars |
-  | RiskImmune | Automated tool scan | No — discovery tool | No | Not a quiz; detects actual tools in use |
-  | Auvik Shadow IT Quiz | Quiz in gated ebook | No | No — gated | Gated content, limited reach |
+  | Tool                                  | Format                 | Dollar Estimate     | PDF           | Notes                                                |
+  | ------------------------------------- | ---------------------- | ------------------- | ------------- | ---------------------------------------------------- |
+  | GXA Shadow AI Risk Simulator          | ~5-question calculator | Yes (IBM-sourced)   | Not confirmed | Closest competitor — marketing lead gen              |
+  | shadowaiaudit.com (Make More Marbles) | 3-minute quiz          | Not confirmed       | Not confirmed | Outputs governance policy template, not risk dollars |
+  | RiskImmune                            | Automated tool scan    | No — discovery tool | No            | Not a quiz; detects actual tools in use              |
+  | Auvik Shadow IT Quiz                  | Quiz in gated ebook    | No                  | No — gated    | Gated content, limited reach                         |
 
   **Genuine market gap confirmed:** No identified tool combines (1) short quiz + (2) dollar-denominated risk output + (3) downloadable personalized PDF in a single ungated flow.
 
@@ -216,30 +225,34 @@
 - **Confirmed patterns:**
 
   **State class pattern (confirmed):**
+
   ```typescript
   import { SvelteMap } from 'svelte/reactivity';
 
   class AssessmentStore {
-    private _currentStep = $state(0);
-    private _responses = $state<SvelteMap<string, Response>>(new SvelteMap());
+  	private _currentStep = $state(0);
+  	private _responses = $state<SvelteMap<string, Response>>(new SvelteMap());
   }
   ```
 
   **Runes config — use function form to protect node_modules:**
+
   ```js
   // svelte.config.js
   // The governance tool's pattern — validated working in production
   compilerOptions: {
-    runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
+  	runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true);
   }
   ```
+
   Note: The boolean form (`runes: true`) is documented as stable but forces runes on ALL files including `node_modules`, which can break Svelte 4-style library components. The function form used by the governance tool is the safer choice for a project with dependencies.
 
   **`$derived.by` for complex derivations:**
+
   ```typescript
   const complexValue = $derived.by(() => {
-    // multi-statement logic
-    return result;
+  	// multi-statement logic
+  	return result;
   });
   ```
 
@@ -266,7 +279,7 @@ Based on Stage 00 research, the dollar-exposure model in Stage 02 should use:
 
 ```typescript
 // Confirmed source: IBM 2025 Cost of a Data Breach Report
-const SHADOW_AI_BREACH_PREMIUM = 670_000;   // Additional cost vs average breach
+const SHADOW_AI_BREACH_PREMIUM = 670_000; // Additional cost vs average breach
 
 // IBM 2025 baseline: 20% of all organizations experienced a shadow AI breach.
 // These probability ranges apply a tier multiplier to the baseline, based on the
@@ -290,12 +303,12 @@ Methodology caveat (required on results page AND in PDF): "This estimate multipl
 
 ## Summary of Changes to Source Plan
 
-| Item | Draft Value | Confirmed Value | Action |
-|------|------------|-----------------|--------|
-| Shadow AI prevalence stat | "98% of orgs" | No citable source | REMOVE — use "20% of orgs had a shadow AI breach" (IBM 2025) |
-| Breach premium | "$670K — IBM Cost of Breach 2024" | $670K confirmed — IBM 2025 report | UPDATE citation year to 2025 |
-| Training stat | "29% trained on AI data handling" | No citable source | REPLACE with "only 17% have technical controls" (IBM 2025) |
-| jsPDF version | Unspecified | v4.2.1 (major version) | Note in scaffold — no API changes for browser use |
-| adapter-vercel runtime | `nodejs20.x` | `nodejs22.x` preferred (v6.3.3) | Use 22.x for new project |
-| Runes config | boolean `runes: true` | Function form per governance tool | Use function form — safer for node_modules |
-| Competitor landscape | Not researched | GXA closest; PDF + dollar output is a real gap | Validated differentiation |
+| Item                      | Draft Value                       | Confirmed Value                                | Action                                                       |
+| ------------------------- | --------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| Shadow AI prevalence stat | "98% of orgs"                     | No citable source                              | REMOVE — use "20% of orgs had a shadow AI breach" (IBM 2025) |
+| Breach premium            | "$670K — IBM Cost of Breach 2024" | $670K confirmed — IBM 2025 report              | UPDATE citation year to 2025                                 |
+| Training stat             | "29% trained on AI data handling" | No citable source                              | REPLACE with "only 17% have technical controls" (IBM 2025)   |
+| jsPDF version             | Unspecified                       | v4.2.1 (major version)                         | Note in scaffold — no API changes for browser use            |
+| adapter-vercel runtime    | `nodejs20.x`                      | `nodejs22.x` preferred (v6.3.3)                | Use 22.x for new project                                     |
+| Runes config              | boolean `runes: true`             | Function form per governance tool              | Use function form — safer for node_modules                   |
+| Competitor landscape      | Not researched                    | GXA closest; PDF + dollar output is a real gap | Validated differentiation                                    |

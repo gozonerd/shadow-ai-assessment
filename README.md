@@ -9,4 +9,4 @@ Deployed at: `shadowai.krystalmartinez.com`
 
 ---
 
-*Part of the Stahl Systems portfolio — see also [AI Governance Assessment](https://governance.krystalmartinez.com)*
+_Part of the Stahl Systems portfolio — see also [AI Governance Assessment](https://governance.krystalmartinez.com)_
