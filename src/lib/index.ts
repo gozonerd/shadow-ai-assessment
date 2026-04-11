@@ -20,3 +20,5 @@ export {
 	MAX_SCORE,
 	SHADOW_AI_BREACH_PREMIUM
 } from './scoring.js';
+
+export { assessment } from './stores/assessment.svelte.js';
