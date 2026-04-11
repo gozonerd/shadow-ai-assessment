@@ -12,8 +12,8 @@
 
 ## Loop 1 — Edit
 
-| #   | Error                                                                                                                                                                                                     | Edit Applied                                                                                                                       |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| #   | Error                                                                                                                                                                                                                   | Edit Applied                                                                                                                             |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | `buildCoverPage` drew the thin divider (between risk label and raw score) using `applyFill(doc, COL_PANEL)` — same color as the score panel background (`#1a1a26`). The divider would be invisible in the rendered PDF. | Changed `applyFill(doc, COL_PANEL)` to `applyFill(doc, COL_SECONDARY)` (`#94a3b8`) so the divider renders as a visible medium-gray line. |
 
 Consecutive null-edit count reset to 0.
@@ -30,8 +30,8 @@ Consecutive null-edit count reset to 0.
 
 ## Loop 4 — Edit
 
-| #   | Error                                                                                                                                                                                                                | Edit Applied                                                                                                                                                                                                               |
-| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| #   | Error                                                                                                                                                                                                                                                                      | Edit Applied                                                                                                                                                                                                                                                             |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1   | Plan requires "Footer on every page: URL, date, page number" mirroring governance tool pattern. Cover page had a standalone branded URL at `pageHeight-14` (accent-colored, 8pt bold) but no call to `addFooter()`. Pages 2 and 3 had the standard footer; page 1 did not. | Removed the standalone branded URL block from `buildCoverPage`. Added `addFooter(doc, pageWidth, pageHeight, 1, dateStr)` at the end of `buildCoverPage`. All 3 pages now receive the standard footer. `addPage` call count unchanged (still 2); 75/75 tests still pass. |
 
 Consecutive null-edit count reset to 0.
@@ -54,24 +54,24 @@ Consecutive null-edit count reset to 0.
 
 ## Final Audit Summary
 
-| Criterion                                                                                  | Status |
-| ------------------------------------------------------------------------------------------ | ------ |
-| `generateReport` uses dynamic import `const { jsPDF } = await import('jspdf')`            | ✓ PASS |
-| 3-page report: Cover, Findings, Next Steps                                                 | ✓ PASS |
-| `addPage` called exactly twice (tested and asserted)                                       | ✓ PASS |
-| Footer on every page (URL, date, page number) — cover + findings + next steps              | ✓ PASS |
-| Filename: `Shadow_AI_Risk_Brief_YYYY-MM-DD.pdf` (tested with regex + specific date)        | ✓ PASS |
-| Dollar exposure with `toLocaleString` currency format                                      | ✓ PASS |
-| Methodology caveat: "Editorial probability estimate … Not actuarial data."                 | ✓ PASS |
-| Per-question breakdown on Findings page (score labels + colors)                            | ✓ PASS |
-| Risk-level-specific recommended actions on Next Steps page                                 | ✓ PASS |
-| Governance CTA: `governance.krystalmartinez.com` on Next Steps page                       | ✓ PASS |
-| IBM 2025 source attribution on Next Steps page                                             | ✓ PASS |
-| `results/+page.svelte` updated to pass `assessment.responses` to `generateReport`          | ✓ PASS |
-| `SvelteMap` compatible with `ReadonlyMap` parameter — svelte-check 0 errors confirms      | ✓ PASS |
-| All 4 risk levels + empty responses tested in `report.test.ts`                             | ✓ PASS |
-| Coverage: 99.07%/83.33%/100%/100% — all exceed 95/70/95/95 thresholds                     | ✓ PASS |
-| `npm run check:all` — 75/75 tests, 0 errors, 0 warnings (Node 22, `nvm use 22`)            | ✓ PASS |
+| Criterion                                                                            | Status |
+| ------------------------------------------------------------------------------------ | ------ |
+| `generateReport` uses dynamic import `const { jsPDF } = await import('jspdf')`       | ✓ PASS |
+| 3-page report: Cover, Findings, Next Steps                                           | ✓ PASS |
+| `addPage` called exactly twice (tested and asserted)                                 | ✓ PASS |
+| Footer on every page (URL, date, page number) — cover + findings + next steps        | ✓ PASS |
+| Filename: `Shadow_AI_Risk_Brief_YYYY-MM-DD.pdf` (tested with regex + specific date)  | ✓ PASS |
+| Dollar exposure with `toLocaleString` currency format                                | ✓ PASS |
+| Methodology caveat: "Editorial probability estimate … Not actuarial data."           | ✓ PASS |
+| Per-question breakdown on Findings page (score labels + colors)                      | ✓ PASS |
+| Risk-level-specific recommended actions on Next Steps page                           | ✓ PASS |
+| Governance CTA: `governance.krystalmartinez.com` on Next Steps page                  | ✓ PASS |
+| IBM 2025 source attribution on Next Steps page                                       | ✓ PASS |
+| `results/+page.svelte` updated to pass `assessment.responses` to `generateReport`    | ✓ PASS |
+| `SvelteMap` compatible with `ReadonlyMap` parameter — svelte-check 0 errors confirms | ✓ PASS |
+| All 4 risk levels + empty responses tested in `report.test.ts`                       | ✓ PASS |
+| Coverage: 99.07%/83.33%/100%/100% — all exceed 95/70/95/95 thresholds                | ✓ PASS |
+| `npm run check:all` — 75/75 tests, 0 errors, 0 warnings (Node 22, `nvm use 22`)      | ✓ PASS |
 
 **Note on environment:** Tests require Node.js v22 (`nvm use 22`). The installed Vite 8.x / rolldown 1.0.0-rc.15 requires `node: "^20.19.0 || >=22.12.0"`. Node v18.20.4 (system default) fails at rolldown startup. Use `nvm use 22` before running any npm scripts. This is a project-environment issue, not a code defect.
 
