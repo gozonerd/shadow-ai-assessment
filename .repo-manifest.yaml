@@ -17,7 +17,7 @@ repo:
   type: "operational"
 
   # One-sentence purpose statement. Claude reads this to orient.
-  purpose: "TODO — fill in purpose"
+  purpose: "Shadow-AI exposure risk assessment micro-tool; SvelteKit with client-side PDF reporting, deployed at shadow-ai-assessment.vercel.app."
 
   # GitHub org or owner: Martinez-Methods | nerdykrystal
   org: "nerdykrystal"
